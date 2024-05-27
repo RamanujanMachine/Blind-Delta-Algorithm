@@ -110,16 +110,16 @@ jobs:
           wrapper: 'wrapper_26017_universal-apple-darwin'
           boinc_platform: 'arm64-apple-darwin'
 
-#  cleanup:
-#    needs: [bundle-and-deploy]
-#    runs-on: ubuntu-latest
-#    steps:
-#      - uses: geekyeggo/delete-artifact@v5
-#        with:
-#          name: |
-#            version
-#            freeze_config.py
-#            linux
-#            mac
-#            win
-#          failOnError: false
+  cleanup:
+    needs: [bundle-and-deploy]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: geekyeggo/delete-artifact@v5
+        with:
+          name: |
+            version
+            freeze_config.py
+            linux
+            mac
+            win
+          failOnError: false

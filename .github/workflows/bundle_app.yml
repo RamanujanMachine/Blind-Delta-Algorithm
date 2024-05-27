@@ -128,17 +128,17 @@ jobs:
             ServerAliveCountMax=10
             ServerAliveInterval=60
         END
-#    - name: 'Make target directory'
-#      run: |
-#        ssh boinc 'sudo su - boincadm -c "mkdir -p /home/boincadm/projects/boinc/apps/${{env.APP_DIR}}/${{env.NEW_VERSION}}"'
-#    - name: 'Copy binaries to server'
-#      run: |
-#        scp $BOINC_PLATFORM.zip boinc:/home/boincadm/projects/boinc/apps/${{env.APP_DIR}}/${{env.NEW_VERSION}}
-#        ssh boinc 'sudo su - boincadm -c "chown boincadm /home/boincadm/projects/boinc/apps/${{env.APP_DIR}}/${{env.NEW_VERSION}}"'
-#        ssh boinc 'sudo su - boincadm -c "chgrp boincadm /home/boincadm/projects/boinc/apps/${{env.APP_DIR}}/${{env.NEW_VERSION}}"'
-#    - name: 'Unpack binaries'
-#      run: |
-#        ssh boinc 'sudo su - boincadm -c "cd /home/boincadm/projects/boinc/apps/${{env.APP_DIR}}/${{env.NEW_VERSION}} && unzip -o -q -d ${{env.BOINC_PLATFORM}} ${{env.BOINC_PLATFORM}}.zip"'
-#    - name: 'Run BOINC update versions'
-#      run: |
-#        ssh boinc 'sudo su - boincadm -c "cd /home/boincadm/projects/boinc && ./bin/update_versions'
+    - name: 'Make target directory'
+      run: |
+        ssh boinc 'sudo su - boincadm -c "mkdir -p /home/boincadm/projects/boinc/apps/${{env.APP_DIR}}/${{env.NEW_VERSION}}"'
+    - name: 'Copy binaries to server'
+      run: |
+        scp $BOINC_PLATFORM.zip boinc:/home/boincadm/projects/boinc/apps/${{env.APP_DIR}}/${{env.NEW_VERSION}}
+        ssh boinc 'sudo su - boincadm -c "chown boincadm /home/boincadm/projects/boinc/apps/${{env.APP_DIR}}/${{env.NEW_VERSION}}"'
+        ssh boinc 'sudo su - boincadm -c "chgrp boincadm /home/boincadm/projects/boinc/apps/${{env.APP_DIR}}/${{env.NEW_VERSION}}"'
+    - name: 'Unpack binaries'
+      run: |
+        ssh boinc 'sudo su - boincadm -c "cd /home/boincadm/projects/boinc/apps/${{env.APP_DIR}}/${{env.NEW_VERSION}} && unzip -o -q -d ${{env.BOINC_PLATFORM}} ${{env.BOINC_PLATFORM}}.zip"'
+    - name: 'Run BOINC update versions'
+      run: |
+        ssh boinc 'sudo su - boincadm -c "cd /home/boincadm/projects/boinc && ./bin/update_versions'
