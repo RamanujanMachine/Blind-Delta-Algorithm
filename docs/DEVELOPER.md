@@ -172,13 +172,15 @@ The `job.xml` and the app zip file are both signed, with signatures stored into 
 
 The wrapper for the platform in question is then signed as well.
 
-A zip file is generated containing all of these artifacts for the platform that is being processed. The zip file is then uploaded as an artifact. 
+A zip file is generated containing all of these artifacts for the platform that is being processed. The zip file is then uploaded to GitHub as an artifact. 
 
 The SSH key from GitHub Secrets is used to establish a connection to the BOINC server. 
 
-A new folder is created, if it does not exist, in the BOINC server apps folder, matching the path `/APP_NAME/NEW_VERSION`. The bundled artifact is copied to this location and unzipped. Finally, the BOINC provided `update_versions` script is invoked to pick up the new binaries.
+**The following portion of this worklfow can be disabled** if the GitHub Actions variable `DO_NOT_DEPLOY` is set to any value. "Any value" because variables in Actions are all strings and a string of any value is "truthy". To disable this safeguard, simply empty the variable value or remove the variable.
 
-A restart of services may be required at this point, but then the new app version should be visible in the 
+If it is not disabled as described above, the next step in the workflow creates a new folder, if it does not exist, in the BOINC server `apps` folder, matching the path `/APP_NAME/NEW_VERSION`. The bundled artifact is copied to this location and unzipped. Finally, the BOINC provided `update_versions` script is invoked to tell BOINC to pick up the new binaries for distribution to clients.
+
+When the app version is successfully deployed then the new app version will be visible in the BOINC web admin interface. If it does not appear check the logs. A [manual restart of services may be required at this point](#restarting-boinc-services).
 
 ## 4. Triggering GitHub Actions
 
