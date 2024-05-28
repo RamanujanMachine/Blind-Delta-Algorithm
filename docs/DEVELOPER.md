@@ -4,7 +4,7 @@
 
 ### 1.1. Overview
 
-Deploying new app versions to the BOINC platform is an involved process, which has been largely automated for existing apps, but still requiring a number of manual steps for new apps. It is important to not the following distinction. An "app" is a new algorithm with its own executable. An "app version" is an executable binary version of the code delivered to end users via the BOINC client. If you make a change to an algorithm to add behavior or to fix a bug, this will result in a new "app version". Creating "apps" ([outlined below](#121-creating-a-new-app)) has not been automated because it can be accomplished through the BOINC server admin web interface. Creating "app versions" has been automated and is the focus of this document and the newly defined GitHub Actions workflows.
+Deploying new app versions to the BOINC platform is an involved process, which has been largely automated for existing apps, but still requiring a number of manual steps for new apps. It is important to note the following distinction. An "app" is a new algorithm with its own executable. An "app version" is an executable binary version of the code delivered to end users via the BOINC client. If you make a change to an algorithm to add behavior or to fix a bug, this will result in a new "app version". Creating "apps" ([outlined below](#121-creating-a-new-app)) has not been automated because it can be accomplished through the BOINC server admin web interface. Creating "app versions" has been automated and is the focus of this document and the newly defined GitHub Actions workflows.
 
 ### 1.2. Manual Steps
 
@@ -90,7 +90,7 @@ Define a variable named `APP_DESCRIPTION` and set it to the application "Descrip
 
 #### Trigger
 
-[workflow_dispatch] (https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#workflow_dispatch)
+[workflow_dispatch](https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#workflow_dispatch)
 
 #### Purpose
 
@@ -132,7 +132,7 @@ In order to pass files between workflows and jobs, they have to be stored as Git
 
 #### Trigger
 
-[workflow_call] (https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#workflow_call)
+[workflow_call](https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#workflow_call)
 
 #### Purpose
 
@@ -152,7 +152,7 @@ The version is stored as an artifact in GitHub Actions for use by later steps.
 
 #### Trigger
 
-[workflow_call] (https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#workflow_call)
+[workflow_call](https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#workflow_call)
 
 #### Purpose
 
@@ -520,7 +520,7 @@ It might be helpful to also run this query with the app version, e.g.:
 
 ## 7. Troubleshooting and Relevant Documentation
 
-**BOINC documentation** can be find both on their [web page](https://boinc.berkeley.edu/trac/wiki/SoftwareDevelopment) and their [GitHub repository wiki](https://github.com/BOINC/boinc/wiki). The latter does not provide a table of contents. It does happen that documentation in one place is contradicted by documentation in the other, so it is advisable that anything found therein is tested before being assumed to be true. This is likely due to the 20 year history of the project and outdated documentation still being present on some topics. Due to the lack of Table of Contents or Index, performing a site search (in the Google search box or the Chrome address bar) is the easiest way to find relevant docs, e.g. looking for documentation on "debugging" would look like this: 
+**BOINC documentation** can be found both on their [web page](https://boinc.berkeley.edu/trac/wiki/SoftwareDevelopment) and their [GitHub repository wiki](https://github.com/BOINC/boinc/wiki). The latter does not provide a table of contents. It does happen that documentation in one place is contradicted by documentation in the other, so it is advisable that anything found therein is tested before being assumed to be true. This is likely due to the 20 year history of the project and outdated documentation still being present on some topics. Due to the lack of Table of Contents or Index, performing a site search (in the Google search box or the Chrome address bar) is the easiest way to find relevant docs, e.g. looking for documentation on "debugging" would look like this: 
 
     site: https://github.com/BOINC/boinc/wiki debugging
 
