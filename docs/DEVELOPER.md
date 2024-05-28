@@ -178,7 +178,7 @@ The SSH key from GitHub Secrets is used to establish a connection to the BOINC s
 
 **The following portion of this worklfow can be disabled** if the GitHub Actions variable `DO_NOT_DEPLOY` is set to any value. "Any value" because variables in Actions are all strings and a string of any value is "truthy". To disable this safeguard, simply empty the variable value or remove the variable.
 
-A new folder is created, if it does not exist, in the BOINC server apps folder, matching the path `/APP_NAME/NEW_VERSION`. The bundled artifact is copied to this location and unzipped. Finally, the BOINC provided `update_versions` script is invoked to tell BOINC to pick up the new binaries for distribution to clients.
+If it is not disabled as described above, the next step in the workflow creates a new folder, if it does not exist, in the BOINC server `apps` folder, matching the path `/APP_NAME/NEW_VERSION`. The bundled artifact is copied to this location and unzipped. Finally, the BOINC provided `update_versions` script is invoked to tell BOINC to pick up the new binaries for distribution to clients.
 
 When the app version is successfully deployed then the new app version will be visible in the BOINC web admin interface. If it does not appear check the logs. A [manual restart of services may be required at this point](#restarting-boinc-services).
 
