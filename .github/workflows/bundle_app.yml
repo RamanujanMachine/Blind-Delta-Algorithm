@@ -145,4 +145,4 @@ jobs:
     - name: 'Run BOINC update versions'
       if: ${{ ! vars.DO_NOT_DEPLOY }}
       run: |
-        ssh boinc 'sudo su - boincadm -c "cd /home/boincadm/projects/boinc && ./bin/update_versions'
+        ssh boinc 'sudo su - boincadm -c "cd /home/boincadm/projects/boinc && ./bin/update_versions"'
