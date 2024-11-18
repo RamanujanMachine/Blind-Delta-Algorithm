@@ -1,6 +1,6 @@
 Blind Delta Algorithm
 ======================
-The Blind Delta Algorithm is a Python-based computational tool designed to explore and analyze Polynomials of Continued Fractions (PCFs). PCFs are mathematical constructs related to continued fractions and have applications in number theory and mathematical research.
+The Blind Delta Algorithm is a Python-based computational tool designed to explore and analyze Polynomial Continued Fractions (PCFs). PCFs are mathematical constructs related to continued fractions and have applications in number theory and mathematical research.
 
 ## Overview
 The algorithm employs numerical and optimization libraries, including NumPy, SciPy, and GMPY2, to perform an exhaustive search over a specified search space of PCFs. The code calculates and analyzes various characteristics of PCFs, such as limits, convergence rates, and deltas. This README provides an overview of the key functions within the code.
