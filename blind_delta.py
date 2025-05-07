@@ -1,11 +1,11 @@
 import csv
+from multiprocessing import Pool
 from itertools import product
 import time
 import gmpy2
 import numpy as np
 from scipy.optimize import curve_fit
 from gmpy2 import mpz, mpfr, log, gcd, sqrt
-
 
 def format_with(var, precision, symbol):
     """
@@ -379,7 +379,7 @@ def search(depth, p,coefficients_lengths, co_min, co_max, precision, not_calcula
     for i in range(len(combinations)):
 
         if([x for x in list(combinations[i-f])[:coefficients_lengths[0]] if x != 0] == [] or [z for z in list(combinations[i-f])[coefficients_lengths[0]:] if z != 0] == []):
-
+            
             combinations.remove(combinations[i-f])
             f+=1
 
@@ -387,7 +387,7 @@ def search(depth, p,coefficients_lengths, co_min, co_max, precision, not_calcula
     all_combinations = [
         (list(combo), coefficients_lengths, int(depth), p, precision, not_calculated_marker, rational_marker, LIMIT_CONSTANT) for combo in combinations
     ]
-
+    
 
     combinations_creation_time = time.time() - combinations_creation_S
 
@@ -412,7 +412,7 @@ def search(depth, p,coefficients_lengths, co_min, co_max, precision, not_calcula
 
     file_writing_time = time.time() - file_writing_S
 
-    #Print the time calculations took
+    #Print the time calculations took 
     print(combinations_creation_time, pcf_calculation_time, file_writing_time)
     #Print some the settings of the calculations
     print (
@@ -429,3 +429,11 @@ def search(depth, p,coefficients_lengths, co_min, co_max, precision, not_calcula
         f"Limit constant: {LIMIT_CONSTANT}\n"
         f"==================================================\n"
     )
+
+
+def main():
+    search(2000, 2,[3, 3], -1, 1, 100000, -1010, -2020, 1000000000,3)
+
+
+if __name__ == "__main__":
+    main()
